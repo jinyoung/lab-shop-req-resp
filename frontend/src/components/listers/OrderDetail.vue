@@ -14,9 +14,9 @@
             <div>
                 <String label="CustomerId" v-model="item.customerId" :editMode="editMode" @change="change" />
             </div>
-            <OrderDetail offline label="OrderDetail" v-model="item.orderDetail" :editMode="false" :key="false" @change="change" />
-            <Payment offline label="Payment" v-model="item.payment" :editMode="false" @change="change" />
-            <Money offline label="Price" v-model="item.price" :editMode="false" @change="change" />
+            <div>
+                <Number label="Amount" v-model="item.amount" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

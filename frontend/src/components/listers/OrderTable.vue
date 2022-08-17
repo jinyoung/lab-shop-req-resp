@@ -70,9 +70,7 @@
                     { text: "productId", value: "productId" },
                     { text: "qty", value: "qty" },
                     { text: "customerId", value: "customerId" },
-                    { text: "orderDetail", value: "orderDetail" },
-                    { text: "payment", value: "payment" },
-                    { text: "price", value: "price" },
+                    { text: "amount", value: "amount" },
                 ],
             order : [],
             newValue: {},
@@ -93,9 +91,7 @@
                 'productId': '',
                 'qty': 0,
                 'customerId': '',
-                'orderDetail': '',
-                'payment': {},
-                'price': {},
+                'amount': 0,
             }
         },
         methods: {

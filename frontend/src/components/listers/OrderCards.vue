@@ -71,9 +71,7 @@
                 'productId': '',
                 'qty': 0,
                 'customerId': '',
-                'orderDetail': '',
-                'payment': {},
-                'price': {},
+                'amount': 0,
             }
         },
         methods:{

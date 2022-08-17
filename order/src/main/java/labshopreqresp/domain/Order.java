@@ -23,13 +23,7 @@ public class Order {
 
     private String customerId;
 
-    private OrderDetail orderDetail;
-
-    @Embedded
-    private Payment payment;
-
-    @Embedded
-    private Money price;
+    private Double amount;
 
     @PostPersist
     public void onPostPersist() {
