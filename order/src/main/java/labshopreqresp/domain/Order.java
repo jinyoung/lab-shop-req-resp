@@ -29,11 +29,11 @@ public class Order {
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
-        labshopreqresp.external.Delivery delivery = new labshopreqresp.external.Delivery();
+        labshopreqresp.external.Inventory inventory = new labshopreqresp.external.Inventory();
         // mappings goes here
         OrderApplication.applicationContext
-            .getBean(labshopreqresp.external.DeliveryService.class)
-            .startDelivery(delivery);
+            .getBean(labshopreqresp.external.InventoryService.class)
+            .decreaseStock(inventory);
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
