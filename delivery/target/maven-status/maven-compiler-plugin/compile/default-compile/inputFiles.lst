@@ -1,0 +1,10 @@
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/domain/Shipped.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/DeliveryApplication.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/domain/Shipping.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/config/kafka/KafkaProcessor.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/infra/ShippingController.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/domain/ShippingRepository.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/infra/AbstractEvent.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/infra/PolicyHandler.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/infra/ShippingHateoasProcessor.java
+/workspace/lab-shop-req-resp/delivery/src/main/java/labshopreqresp/domain/Returned.java
