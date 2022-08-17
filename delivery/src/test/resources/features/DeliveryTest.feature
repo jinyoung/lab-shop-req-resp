@@ -1,4 +1,4 @@
-Feature: Shipping
+Feature: Delivery
     Scenario Outline: 
         Given OrderPlaced ( ) is published and  ( ) is present
         When start delivery

@@ -51,7 +51,7 @@
                         </v-fab-transition>
                     </template>
 
-                    <Shipping :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <Delivery :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                             style="postition:absolute; top:2%; right:2%"
@@ -70,12 +70,12 @@
 
 <script>
     const axios = require('axios').default;
-    import Shipping from './../Shipping.vue';
+    import Delivery from './../Delivery.vue';
 
     export default {
-        name: 'ShippingManager',
+        name: 'DeliveryManager',
         components: {
-            Shipping,
+            Delivery,
         },
         props: {
             offline: Boolean,
@@ -94,9 +94,9 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/shippings'))
-            temp.data._embedded.shippings.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
-            this.values = temp.data._embedded.shippings;
+            var temp = await axios.get(axios.fixUrl('/deliveries'))
+            temp.data._embedded.deliveries.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            this.values = temp.data._embedded.deliveries;
             
             this.newValue = {
                 'orderId': 0,

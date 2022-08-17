@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-// @RequestMapping(value="/shippings")
+// @RequestMapping(value="/deliveries")
 @Transactional
-public class ShippingController {
+public class DeliveryController {
 
     @Autowired
-    ShippingRepository shippingRepository;
+    DeliveryRepository deliveryRepository;
     // keep
 }

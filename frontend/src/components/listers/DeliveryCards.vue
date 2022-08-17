@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 style = "margin-left:4.5%; margin-top:-10px;">Shipping</h1>
+        <h1 style = "margin-left:4.5%; margin-top:-10px;">Delivery</h1>
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
                 <v-dialog
@@ -10,7 +10,7 @@
                         hide-overlay
                         transition="dialog-bottom-transition"
                 >
-                    <Shipping :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" 
+                    <Delivery :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" 
                             @add="append" v-if="tick"/>
 
                     <v-btn
@@ -33,7 +33,7 @@
             </div>
         </v-col>
         <v-row>
-            <Shipping :offline="offline" class="video-card" v-for="(value, index) in values" v-model="values[index]" v-bind:key="index" @delete="remove"/>
+            <Delivery :offline="offline" class="video-card" v-for="(value, index) in values" v-model="values[index]" v-bind:key="index" @delete="remove"/>
         </v-row>
     </div>
 </template>
@@ -41,12 +41,12 @@
 <script>
 
     const axios = require('axios').default;
-    import Shipping from './../Shipping.vue';
+    import Delivery from './../Delivery.vue';
 
     export default {
-        name: 'ShippingManager',
+        name: 'DeliveryManager',
         components: {
-            Shipping,
+            Delivery,
         },
         props: {
             offline: Boolean
@@ -64,8 +64,8 @@
                 return;
             } 
 
-            var temp = await axios.get(axios.fixUrl('/shippings'))
-            me.values = temp.data._embedded.shippings;
+            var temp = await axios.get(axios.fixUrl('/deliveries'))
+            me.values = temp.data._embedded.deliveries;
             
             me.newValue = {
                 'orderId': 0,

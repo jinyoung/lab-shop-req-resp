@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(name = "delivery", url = "${api.url.delivery}")
-public interface ShippingService {
-    @RequestMapping(method = RequestMethod.POST, path = "/shippings")
-    public void startDelivery(@RequestBody Shipping shipping);
+public interface DeliveryService {
+    @RequestMapping(method = RequestMethod.POST, path = "/deliveries")
+    public void startDelivery(@RequestBody Delivery delivery);
     // keep
 
 }
