@@ -7,16 +7,16 @@ import lombok.*;
 
 @Data
 @ToString
-public class Returned extends AbstractEvent {
+public class DeliveryStarted extends AbstractEvent {
 
     private Long id;
     private Long orderId;
 
-    public Returned(Shipping aggregate) {
+    public DeliveryStarted(Delivery aggregate) {
         super(aggregate);
     }
 
-    public Returned() {
+    public DeliveryStarted() {
         super();
     }
     // keep

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import labshopreqresp.OrderApplication;
-import labshopreqresp.domain.OrderCancelled;
 import labshopreqresp.domain.OrderPlaced;
 import lombok.Data;
 
@@ -30,20 +29,14 @@ public class Order {
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
-        labshopreqresp.external.Shipping shipping = new labshopreqresp.external.Shipping();
+        labshopreqresp.external.Delivery delivery = new labshopreqresp.external.Delivery();
         // mappings goes here
         OrderApplication.applicationContext
-            .getBean(labshopreqresp.external.ShippingService.class)
-            .startDelivery(shipping);
+            .getBean(labshopreqresp.external.DeliveryService.class)
+            .startDelivery(delivery);
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
-    }
-
-    @PostRemove
-    public void onPostRemove() {
-        OrderCancelled orderCancelled = new OrderCancelled(this);
-        orderCancelled.publishAfterCommit();
     }
 
     @PrePersist
@@ -54,9 +47,6 @@ public class Order {
         //    .getInventory(/** mapping value needed */);
 
     }
-
-    @PreRemove
-    public void onPreRemove() {}
 
     public static OrderRepository repository() {
         OrderRepository orderRepository = OrderApplication.applicationContext.getBean(
