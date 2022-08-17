@@ -49,9 +49,12 @@ public class Order {
     @PrePersist
     public void onPrePersist() {
         // Get request from Inventory
-        //labshopreqresp.external.Inventory inventory =
-        //    Application.applicationContext.getBean(labshopreqresp.external.InventoryService.class)
-        //    .getInventory(/** mapping value needed */);
+        labshopreqresp.external.Inventory inventory =
+           OrderApplication.applicationContext.getBean(labshopreqresp.external.InventoryService.class)
+           .getInventory(Long.valueOf(getProductId()));
+
+        if(inventory.getStock() == 0)
+            throw new RuntimeException("Out of stock");
 
     }
 
