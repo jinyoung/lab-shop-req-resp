@@ -82,10 +82,6 @@
             if (!this.value) {
                 this.value = [];
             }
-
-            if(this.editMode){
-                this.isExpansion = true
-            }
         },
         methods: {
             append(value){

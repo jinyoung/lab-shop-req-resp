@@ -1,27 +1,27 @@
 <template>
 
-    <div style="margin: 0 -15px 0 -15px;">
+    <v-card outlined>
         <v-card-title>
-            
+            OrderDetail
         </v-card-title>
 
         <v-card-text>
+            <Number label="OrderItemId" v-model="value.orderItemId" :editMode="editMode"/>
+            <Number label="ProductId" v-model="value.productId" :editMode="editMode"/>
+            <Number label="Qty" v-model="value.qty" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions v-if="inList">
             <slot name="actions"></slot>
         </v-card-actions>
-    </div>
+    </v-card>
 </template>
 
 <script>
-    
-
 
     export default {
         name: 'OrderDetail',
-        components:{
-        },
+        components:{},
         props: {
             value: [Object, String, Number, Boolean, Array],
             editMode: Boolean,
@@ -31,34 +31,42 @@
             label: String,
         },
         data: () => ({
-        
         }),
         async created() {
-            if(!('orderItemId' in this.value)) {
-                this.value.orderItemId = 0;
+            if(!Object.values(this.value)[0]) {
+                this.$emit('input', {});
+                this.newValue = {
+                    'orderItemId': '',
+                    'productId': '',
+                    'qty': '',
+                }
             }
-            if(!('productId' in this.value)) {
-                this.value.productId = 0;
-            }
-            if(!('qty' in this.value)) {
-                this.value.qty = 0;
+            if(typeof this.value === 'object') {
+                if(!('orderItemId' in this.value)) {
+                    this.value.orderItemId = 0;
+                }
+                if(!('productId' in this.value)) {
+                    this.value.productId = 0;
+                }
+                if(!('qty' in this.value)) {
+                    this.value.qty = 0;
+                }
             }
         },
         watch: {
-                        value(val) {
+            value(val) {
                 this.$emit('input', val);
             },
             newValue(val) {
                 this.$emit('input', val);
             },
-            
         },
 
         methods: {
             edit() {
                 this.editMode = true;
             },
-                        async add() {
+            async add() {
                 this.editMode = false;
                 this.$emit('input', this.value);
 
@@ -78,7 +86,6 @@
             change(){
                 this.$emit('change', this.value);
             },
-            
         }
     }
 </script>

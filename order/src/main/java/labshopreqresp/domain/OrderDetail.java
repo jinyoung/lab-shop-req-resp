@@ -6,7 +6,7 @@ import javax.persistence.*;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
-@Entity
+@Embeddable
 @Data
 public class OrderDetail {
 
