@@ -13,7 +13,7 @@ public interface InventoryService {
     public Inventory getInventory(@PathVariable("id") Long id);
     // keep
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/inventories/{id}/decreaseStock")
+    @RequestMapping(method = RequestMethod.PUT, path = "/inventories/{id}/decrease-stock")
     public Inventory decreaseStock(@PathVariable("id") Long id, @RequestBody DecreaseStockCommand decreaseStockCommand);
 
 }

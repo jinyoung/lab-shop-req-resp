@@ -30,6 +30,7 @@ public class Order {
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
         labshopreqresp.external.DecreaseStockCommand decreaseStockCommand = new labshopreqresp.external.DecreaseStockCommand();
+        decreaseStockCommand.setQty(getQty());
         // mappings goes here
         OrderApplication.applicationContext
             .getBean(labshopreqresp.external.InventoryService.class)
@@ -46,7 +47,7 @@ public class Order {
            OrderApplication.applicationContext.getBean(labshopreqresp.external.InventoryService.class)
            .getInventory(Long.valueOf(getProductId()));
 
-        if(inventory.getStock() == 0)
+        if(inventory.getStock() <= 0)
             throw new RuntimeException("Out of stock");
 
     }
